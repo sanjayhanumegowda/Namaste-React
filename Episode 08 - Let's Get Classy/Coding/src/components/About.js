@@ -6,17 +6,7 @@ import User from "./User";
 import UserClass from "./UserClass";
 
 class About extends React.Component {
-  /**
-   * Constructor is the first method that is called when an instance of a class is created
-   * It is used to initialize the state of the component
-   * It is also used to bind the event handlers
-   * 
-   * This phase is called the Mounting Phase / Loading Phase, where the component is being created and inserted into the DOM.
-   * The constructor is called only once in the lifecycle of a component.
-   * The constructor is the right place to initialize the state of the component.
-   * 
-   * @param {object} props - The props object is the properties passed to the component
-   */
+  
   constructor(props) {
     super(props); // Call the super constructor with props
 
@@ -25,30 +15,27 @@ class About extends React.Component {
       showUser: false,
     };
 
-    console.log("About Class (Parent) Constructor Called");
+    // console.log("Parent - AboutClass constructor() Called");
   }
 
-  // componentDidMount is called after the component is rendered
   componentDidMount() {
-    console.log("About Class (Parent) Component Did Mount Called");
+    // console.log("Parent - AboutClass componentDidMount() Called");
   }
 
-  // componentDidUpdate is called after the component is updated
   componentDidUpdate() {
-    console.log("About Class (Parent) Component Did Update Called");
+    // console.log("Parent - AboutClass componentDidUpdate() Called");
   }
-
-  // componentWillUnmount is called before the component is removed from the DOM
+  
   componentWillUnmount() {
-    console.log("About Class (Parent) Component Will Unmount Called");
+    // console.log("Parent - AboutClass componentWillUnmount() Called");
   }
 
   toggleUser = () => {
     this.setState({ showUser: !this.state.showUser });
   };
-
+  
   render() {
-    console.log("About Class (Parent) Render Method Called");
+    // console.log("Parent - AboutClass render() Method Called");
 
     return (
       <div className="about-container">
@@ -58,10 +45,10 @@ class About extends React.Component {
               {this.state.showUser ? "Hide User" : "Show User"}
             </button>
           }
-          {this.state.showUser && <User name={"Bharat Kumar"} location={"Bihar"} />}
-          {this.state.showUser && <UserClass name={"Bharat Kumar"} location={"Bihar"} />}
+          {/* {this.state.showUser && <User />} */}
+          {this.state.showUser && <UserClass />} 
         </div>
-  
+
         <div className="about">
           <div className="about-left">
             <h1>
@@ -69,8 +56,8 @@ class About extends React.Component {
               <span>Tasty & Fresh Food</span>
             </h1>
             <h4>
-              "Better you will feel if you eat a Tasty<span>Trails</span> healthy
-              meal"
+              "Better you will feel if you eat a Tasty<span>Trails</span>{" "}
+              healthy meal"
             </h4>
           </div>
           <div className="about-right">
@@ -83,6 +70,130 @@ class About extends React.Component {
 }
 
 export default About;
+
+
+
+// class About extends React.Component {
+//   /**
+//    * Constructor is the first method that is called when an instance of a class is created
+//    * It is used to initialize the state of the component
+//    * It is also used to bind the event handlers
+//    * @param {object} props - The props object is the properties passed to the component
+//    */
+//   constructor(props) {
+//     super(props); // Call the super constructor with props
+
+//     // Initialize the state of the component
+//     this.state = {
+//       showUser: false,
+//     };
+
+//     console.log("Parent - AboutClass constructor() Called");
+//   }
+
+//   /**
+//    * componentDidMount is called after the component is rendered
+//    * It is used to make API calls, set up subscriptions, or initialize data
+//    */
+//   componentDidMount() {
+//     console.log("Parent - AboutClass componentDidMount() Called");
+//   }
+
+//   /**
+//    * This phase is called the Updating Phase, where the component is being re-rendered due to changes in props or state.
+//    * The shouldComponentUpdate method is called before the render method is called.
+//    * The shouldComponentUpdate method is called before the component is updated.
+//    */
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log("Parent - AboutClass shouldComponentUpdate() Called");
+//     console.log("Next Props: ", nextProps);
+//     console.log("Next State: ", nextState);
+//     console.log("Current Props: ", this.props);
+//     console.log("Current State: ", this.state);
+//     return true;
+//   }
+
+//   /**
+//    * componentDidUpdate is called after the component is updated
+//    * It is used to perform DOM operations or make API calls based on the changes
+//    */
+//   componentDidUpdate() {
+//     console.log("Parent - AboutClass componentDidUpdate() Called");
+//   }
+
+//   /**
+//    * This phase is called the Unmounting Phase, where the component is being removed from the DOM.
+//    * The componentWillUnmount method is called before the component is removed from the tree.
+//    * The componentWillUnmount method is called before the component is unmounted (removed from the tree).
+//    *
+//    * It is used to perform cleanup operations like clearing timers or subscriptions
+//    */
+//   componentWillUnmount() {
+//     console.log("Parent - AboutClass componentWillUnmount() Called");
+//   }
+
+//   toggleUser = () => {
+//     this.setState({ showUser: !this.state.showUser });
+//   };
+
+//   /**
+//    * render method is called to render the JSX
+//    * It is a required method in class components
+//    * It returns the JSX of the component
+//    */
+//   render() {
+//     console.log("Parent - AboutClass render() Method Called");
+
+//     return (
+//       <div className="about-container">
+//         <div className="show-profile">
+//           {
+//             <button className="user-btn" onClickCapture={this.toggleUser}>
+//               {this.state.showUser ? "Hide User" : "Show User"}
+//             </button>
+//           }
+//           {this.state.showUser && <User name={"Bharat Kumar"} location={"Bihar"} />}
+//           {this.state.showUser && <UserClass name={"Bharat Kumar"} location={"Bihar"} />}
+//         </div>
+
+//         <div className="about">
+//           <div className="about-left">
+//             <h1>
+//               Welcome to <br /> The world of <br />{" "}
+//               <span>Tasty & Fresh Food</span>
+//             </h1>
+//             <h4>
+//               "Better you will feel if you eat a Tasty<span>Trails</span>{" "}
+//               healthy meal"
+//             </h4>
+//           </div>
+//           <div className="about-right">
+//             <img src={burgerImage} alt="Food Image" />
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default About;
+
+/**
+- About(Parent) Constructor
+- About(Parent) Render
+
+  - First(UserClass - Child) Constructor
+  - First(UserClass - Child) Render
+
+  - Second(UserClass - Child) Constructor
+  - Second(UserClass - Child) Render
+
+  <DOM UPDATED - IN SINGLE BATCH>
+  - First(UserClass - Child) componentDidMount
+  - Second(UserClass - Child) componentDidMount
+
+- About(Parent) componentDidMount
+ */
 
 
 // const About = () => {
@@ -120,24 +231,3 @@ export default About;
 // };
 
 // export default About;
-
-
-
-
-/**
-The mounting or loading process in the UserClass component involves the lifecycle methods provided by React, such as componentDidMount, componentDidUpdate, and componentWillUnmount.
-
-Here is a breakdown of these methods:
-
-1. Constructor: The constructor is called first when an instance of the component is created. 
-It is used to initialize the state and bind event handlers.
-
-2. componentDidMount: This method is called immediately after the component is mounted (inserted into the tree). 
-It's a good place to set up any subscriptions, initialize data, or make network requests.
-
-3. componentDidUpdate: This method is called after the component is updated. 
-It's useful for handling operations based on changes in the state or props.
-
-4. componentWillUnmount: This method is called just before the component is unmounted and destroyed. 
-It's useful for cleaning up subscriptions, canceling network requests, or other cleanup operations.
- */

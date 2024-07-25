@@ -65,7 +65,7 @@ const RestaurantMenu = () => {
                 {avgRatingString || 3.8} ({totalRatingsString || "1K+ ratings"})
               </span>
             </div>
-            <h4>|</h4>
+            <span>|</span>
             <span className="time">{sla?.slaString}</span>
           </h4>
         </div>
@@ -87,7 +87,7 @@ const RestaurantMenu = () => {
               <div className="left">
                 <h2>{name}</h2>
                 <h4>₹{price / 100 || defaultPrice / 100}</h4>
-                <p>{description.slice(0, 60)}</p>
+                <p>{description && description.slice(0, 60) || "Dummy"}</p>
                 <h4 className="rating">
                   <MdStarRate
                     className="rating-logo"
